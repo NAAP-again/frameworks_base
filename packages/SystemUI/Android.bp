@@ -208,6 +208,7 @@ android_library {
         "motion_tool_lib",
         "notification_flags_lib",
         "bcsmartspace-google",
+        "FadingEdgeLayoutLib",
     ],
     libs: [
         "keepanno-annotations",
