@@ -147,20 +147,7 @@ public class MobileMappings {
         networkToIconLookup.put(toIconKey(TelephonyManager.NETWORK_TYPE_HSPA), hGroup);
         networkToIconLookup.put(toIconKey(TelephonyManager.NETWORK_TYPE_HSPAP), hPlusGroup);
 
-        if (config.show4gForLte) {
-            networkToIconLookup.put(toIconKey(
-                    TelephonyManager.NETWORK_TYPE_LTE),
-                    TelephonyIcons.FOUR_G);
-            if (config.hideLtePlus) {
-                networkToIconLookup.put(toDisplayIconKey(
-                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_LTE_CA),
-                        TelephonyIcons.FOUR_G);
-            } else {
-                networkToIconLookup.put(toDisplayIconKey(
-                        TelephonyDisplayInfo.OVERRIDE_NETWORK_TYPE_LTE_CA),
-                        TelephonyIcons.FOUR_G_PLUS);
-            }
-        } else if (config.show4glteForLte) {
+        if (config.show4glteForLte) {
             networkToIconLookup.put(toIconKey(
                     TelephonyManager.NETWORK_TYPE_LTE),
                     TelephonyIcons.FOUR_G_LTE);
@@ -240,8 +227,6 @@ public class MobileMappings {
             if (b != null) {
                 config.alwaysShowDataRatIcon = b.getBoolean(
                         CarrierConfigManager.KEY_ALWAYS_SHOW_DATA_RAT_ICON_BOOL);
-                config.show4gForLte = b.getBoolean(
-                        CarrierConfigManager.KEY_SHOW_4G_FOR_LTE_DATA_ICON_BOOL);
                 config.show4glteForLte = b.getBoolean(
                         CarrierConfigManager.KEY_SHOW_4GLTE_FOR_LTE_DATA_ICON_BOOL);
                 config.show4gFor3g = b.getBoolean(
