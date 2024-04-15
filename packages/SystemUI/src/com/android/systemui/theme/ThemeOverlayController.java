@@ -132,7 +132,7 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
     protected static final String TAG = "ThemeOverlayController";
     private static final boolean DEBUG = true;
 
-    private static final String DARK_OVERLAY_NAME = "com.android.yaap.dark_bg";
+    private static final String DARK_OVERLAY_NAME = "com.android.naap.dark_bg";
 
     private final ThemeOverlayApplier mThemeManager;
     private final UserManager mUserManager;

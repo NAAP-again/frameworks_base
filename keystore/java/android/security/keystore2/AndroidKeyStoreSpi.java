@@ -48,7 +48,7 @@ import android.system.keystore2.ResponseCode;
 import android.util.Log;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.internal.util.yaap.PixelPropsUtils;
+import com.android.internal.util.naap.PixelPropsUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

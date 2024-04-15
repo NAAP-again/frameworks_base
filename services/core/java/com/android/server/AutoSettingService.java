@@ -15,11 +15,11 @@
  */
 package com.android.server;
 
-import static com.android.internal.util.yaap.AutoSettingConsts.MODE_DISABLED;
-import static com.android.internal.util.yaap.AutoSettingConsts.MODE_NIGHT;
-import static com.android.internal.util.yaap.AutoSettingConsts.MODE_TIME;
-import static com.android.internal.util.yaap.AutoSettingConsts.MODE_MIXED_SUNSET;
-import static com.android.internal.util.yaap.AutoSettingConsts.MODE_MIXED_SUNRISE;
+import static com.android.internal.util.naap.AutoSettingConsts.MODE_DISABLED;
+import static com.android.internal.util.naap.AutoSettingConsts.MODE_NIGHT;
+import static com.android.internal.util.naap.AutoSettingConsts.MODE_TIME;
+import static com.android.internal.util.naap.AutoSettingConsts.MODE_MIXED_SUNSET;
+import static com.android.internal.util.naap.AutoSettingConsts.MODE_MIXED_SUNRISE;
 
 import android.annotation.Nullable;
 import android.app.AlarmManager;

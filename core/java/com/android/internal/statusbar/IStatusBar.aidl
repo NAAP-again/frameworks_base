@@ -374,7 +374,7 @@ oneway interface IStatusBar
     void showMediaOutputSwitcher(String packageName);
 
     /**
-     * YAAP extensions
+     * NAAP extensions
      */
     void toggleCameraFlash();
 }

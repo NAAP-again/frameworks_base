@@ -100,7 +100,7 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.policy.SystemBarUtils;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.LatencyTracker;
-import com.android.internal.util.yaap.YaapUtils;
+import com.android.internal.util.naap.NaapUtils;
 import com.android.keyguard.ActiveUnlockConfig;
 import com.android.keyguard.KeyguardClockSwitch.ClockSize;
 import com.android.keyguard.KeyguardStatusView;
@@ -995,7 +995,7 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
             @Override
             public boolean onDoubleTap(MotionEvent e) {
                 mView.getHandler().postDelayed(() -> {
-                    YaapUtils.switchScreenOff(mView.getContext());
+                    NaapUtils.switchScreenOff(mView.getContext());
                 }, 100);
                 return true;
             }

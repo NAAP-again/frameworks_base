@@ -242,7 +242,7 @@ interface IStatusBarService
     void startAssist(in Bundle args);
 
     /**
-     * YAAP extensions
+     * NAAP extensions
      */
     void toggleCameraFlash();
 }
