@@ -151,7 +151,7 @@ public class DnsTile extends SecureQSTile<BooleanState> {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.YASP;
+        return MetricsEvent.NASP;
     }
 
     private String getSecondaryLabel(int mode) {
