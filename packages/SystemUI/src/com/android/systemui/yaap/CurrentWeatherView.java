@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.systemui.yaap;
+package com.android.systemui.naap;
 
 import android.content.Context;
 import android.database.ContentObserver;
@@ -27,7 +27,7 @@ import android.widget.ImageView;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.android.internal.util.yaap.OmniJawsClient;
+import com.android.internal.util.naap.OmniJawsClient;
 import com.android.systemui.res.R;
 
 public class CurrentWeatherView extends FrameLayout implements OmniJawsClient.OmniJawsObserver {

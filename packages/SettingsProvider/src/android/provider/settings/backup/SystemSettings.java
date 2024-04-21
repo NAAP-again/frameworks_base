@@ -166,5 +166,8 @@ public class SystemSettings {
         Settings.System.MAX_MUSIC_VOLUME,
         Settings.System.MAX_ALARM_VOLUME,
         Settings.System.FULLSCREEN_GESTURES,
+        Settings.System.LOCKSCREEN_WEATHER_PROVIDER,
+        Settings.System.LOCKSCREEN_WEATHER_LOCATION,
+        Settings.System.LOCKSCREEN_WEATHER_TEXT,
     };
 }
