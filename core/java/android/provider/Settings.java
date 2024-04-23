@@ -6473,16 +6473,6 @@ public final class Settings {
         public static final String STATUS_BAR_CUSTOM_HEADER_HEIGHT = "status_bar_custom_header_height";
 
         /**
-         * Keys we no longer back up under the current schema, but want to continue to
-         * process when restoring historical backup datasets.
-         *
-         * All settings in {@link LEGACY_RESTORE_SETTINGS} array *must* have a non-null validator,
-         * otherwise they won't be restored.
-         *
-         * @hide
-         */
-        
-        /**
          * Style of battery to show.
          * 0 = protrait (default)
          * 1 = circle
