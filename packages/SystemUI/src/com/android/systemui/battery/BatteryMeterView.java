@@ -16,7 +16,6 @@
 package com.android.systemui.battery;
 
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
-import static android.provider.Settings.System.SHOW_BATTERY_PERCENT_CHARGING;
 import static android.provider.Settings.System.QS_SHOW_BATTERY_ESTIMATE;
 import static android.provider.Settings.System.STATUS_BAR_BATTERY_STYLE;
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT_INSIDE;
@@ -358,26 +357,17 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     void updateShowPercent() {
         final ContentResolver resolver = getContext().getContentResolver();
         final boolean showing = mBatteryPercentView != null;
-
-        // user settings
-        final boolean showBatteryPercent = Settings.System.getIntForUser(
-                resolver, SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT) == 1;
+        final int showBatteryPercent = Settings.System.getIntForUser(
+                resolver, SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
         final boolean userDrawPercentInside = Settings.System.getIntForUser(
                 resolver, SHOW_BATTERY_PERCENT_INSIDE, 0, UserHandle.USER_CURRENT) == 1;
-        final boolean showBatteryPercentCharging = Settings.System.getIntForUser(
-                resolver, SHOW_BATTERY_PERCENT_CHARGING, 0, UserHandle.USER_CURRENT) == 1;
-
-        // some boolean algebra, don't freak out
-        final boolean chargeForcePercent = showBatteryPercentCharging && isCharging();
-        final boolean drawPercent = mShowPercentMode == MODE_DEFAULT
-                && (showBatteryPercent || chargeForcePercent);
-        final boolean isEstimate = mShowPercentMode == MODE_ESTIMATE;
+        final boolean drawPercent = mShowPercentMode == MODE_DEFAULT &&
+                showBatteryPercent == 1;
+        final boolean drawPercentOnly = mShowPercentMode == MODE_ESTIMATE ||
+                showBatteryPercent == 2;
         final boolean isText = mBatteryStyle == BATTERY_STYLE_TEXT;
-        final boolean drawInside = drawPercent && userDrawPercentInside;
 
-        // always draw when we show estimate or in text mode
-        // don't show if we're set to draw inside or we disabled % entirely
-        if (isEstimate || isText || (drawPercent && (!drawInside || chargeForcePercent))) {
+        if (drawPercentOnly || isText || (drawPercent && (!userDrawPercentInside || mCharging))) {
             // draw next to the icon
             mCircleDrawable.setShowPercent(false);
             mThemedDrawable.setShowPercent(false);
@@ -398,9 +388,10 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
                     R.dimen.battery_level_padding_start);
             mBatteryPercentView.setPaddingRelative(isText ? 0 : paddingStart, 0, 0, 0);
         } else {
-            // maybe draw inside
-            mCircleDrawable.setShowPercent(drawInside);
-            mThemedDrawable.setShowPercent(drawInside);
+            // draw inside if we want it
+            boolean inside = drawPercent && userDrawPercentInside;
+            mCircleDrawable.setShowPercent(inside);
+            mThemedDrawable.setShowPercent(inside);
             if (showing) {
                 // remove the percentage view
                 removeView(mBatteryPercentView);
