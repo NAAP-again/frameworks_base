@@ -18,7 +18,6 @@ package com.android.systemui.battery;
 import static android.provider.Settings.Global.BATTERY_ESTIMATES_LAST_UPDATE_TIME;
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
 import static android.provider.Settings.System.QS_SHOW_BATTERY_ESTIMATE;
-import static android.provider.Settings.System.STATUS_BAR_BATTERY_STYLE;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -126,9 +125,7 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                 public void onUserChanged(int newUser, @NonNull Context userContext) {
                     mContentResolver.unregisterContentObserver(mSettingObserver);
                     registerShowBatteryPercentObserver(newUser);
-                    registerGlobalBatteryUpdateObserver();
-                    registerUserSettingsObservers();
-                    mView.updateBatteryStyle();
+                    mView.updateShowPercent();
                 }
             };
 
@@ -176,7 +173,7 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
         registerUserSettingsObservers();
         mUserTracker.addCallback(mUserChangedCallback, new HandlerExecutor(mMainHandler));
 
-        mView.updateBatteryStyle();
+        mView.updateShowPercent();
     }
 
     @Override
@@ -203,7 +200,8 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
             return;
         }
 
-        mTunerService.addTunable(mTunable, StatusBarIconController.ICON_HIDE_LIST);
+        mTunerService.addTunable(mTunable, StatusBarIconController.ICON_HIDE_LIST,
+                BatteryMeterView.STATUS_BAR_BATTERY_STYLE);
         mIsSubscribedForTunerUpdates = true;
     }
 
@@ -236,10 +234,6 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                 Settings.System.getUriFor(QS_SHOW_BATTERY_ESTIMATE),
                 false,
                 mSettingObserver);
-        mContentResolver.registerContentObserver(
-                Settings.System.getUriFor(STATUS_BAR_BATTERY_STYLE),
-                false,
-                mSettingObserver);
     }
 
     private final class SettingObserver extends ContentObserver {
@@ -260,9 +254,6 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                     break;
                 case QS_SHOW_BATTERY_ESTIMATE:
                     mView.updatePercentView();
-                    break;
-                case STATUS_BAR_BATTERY_STYLE:
-                    mView.updateBatteryStyle();
                     break;
             }
         }
