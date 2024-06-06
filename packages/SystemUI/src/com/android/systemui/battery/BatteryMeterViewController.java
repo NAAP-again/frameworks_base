@@ -19,7 +19,6 @@ import static android.provider.Settings.Global.BATTERY_ESTIMATES_LAST_UPDATE_TIM
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
 import static android.provider.Settings.System.QS_SHOW_BATTERY_ESTIMATE;
 import static android.provider.Settings.System.STATUS_BAR_BATTERY_STYLE;
-import static android.provider.Settings.System.SHOW_BATTERY_PERCENT_INSIDE;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -241,10 +240,6 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                 Settings.System.getUriFor(STATUS_BAR_BATTERY_STYLE),
                 false,
                 mSettingObserver);
-        mContentResolver.registerContentObserver(
-                Settings.System.getUriFor(SHOW_BATTERY_PERCENT_INSIDE),
-                false,
-                mSettingObserver);
     }
 
     private final class SettingObserver extends ContentObserver {
@@ -261,7 +256,6 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                     mView.updatePercentText();
                     break;
                 case SHOW_BATTERY_PERCENT:
-                case SHOW_BATTERY_PERCENT_INSIDE:
                     mView.updateShowPercent();
                     break;
                 case QS_SHOW_BATTERY_ESTIMATE:

@@ -149,7 +149,6 @@ public class SystemSettings {
         Settings.System.NAVBAR_LAYOUT_VIEWS,
         Settings.System.VOLUME_KEY_CURSOR_CONTROL,
         Settings.System.STATUS_BAR_BATTERY_STYLE,
-        Settings.System.SHOW_BATTERY_PERCENT_INSIDE,
         Settings.System.VOLUME_BUTTON_QUICK_MUTE,
         Settings.System.VOLUME_BUTTON_QUICK_MUTE_DELAY,
         Settings.System.BACK_GESTURE_HEIGHT,
