@@ -504,7 +504,7 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
         });
 
         mSystemSettings.registerContentObserverForUser(
-                LineageSettings.System.getUriFor(LineageSettings.System.STATUS_BAR_BATTERY_STYLE),
+                Settings.System.getUriFor(Settings.System.STATUS_BAR_BATTERY_STYLE),
                 false, observer, UserHandle.USER_ALL);
 
         if (!mIsMonetEnabled) {
