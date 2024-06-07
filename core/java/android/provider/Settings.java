@@ -6464,14 +6464,6 @@ public final class Settings {
         public static final String STATUS_BAR_CUSTOM_HEADER_HEIGHT = "status_bar_custom_header_height";
 
         /**
-         * Style of battery to show.
-         *
-         * @hide
-         */
-        @Readable
-        public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
-
-        /**
          * Whether to enable quick mute
          * @hide
          */
