@@ -96,4 +96,9 @@
 
     <!-- Whether to cancel fingerprint operation if not idle -->
     <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
+
+    <!-- Slider vibrations fallbacks - set either to non positive to disable
+         maximum duration in ms the slider vibrations scale to from 0 -->
+    <java-symbol type="integer" name="config_sliderVibFallbackDuration" />
+
 </resources>
