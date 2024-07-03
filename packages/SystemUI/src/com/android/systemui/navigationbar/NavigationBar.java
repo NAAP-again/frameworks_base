@@ -821,11 +821,8 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
             refreshLayout(ld);
         }
         repositionNavigationBar(rotation);
-        if (canShowSecondaryHandle()) {
-            if (rotation != mCurrentRotation) {
-                mCurrentRotation = rotation;
-                orientSecondaryHomeHandle();
-            }
+        if (rotation != mCurrentRotation) {
+            mCurrentRotation = rotation;
         }
     }
 
