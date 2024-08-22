@@ -132,6 +132,7 @@ public class SystemSettings {
                 Settings.System.GAMING_MODE_HW_BUTTONS,
                 Settings.System.GAMING_MODE_NIGHT_LIGHT,
                 Settings.System.GAMING_MODE_BATTERY_SCHEDULE,
+                Settings.System.GAMING_MODE_POWER,
                 Settings.System.GAMING_MODE_BLUETOOTH,
                 Settings.System.GAMING_MODE_EXTRA_DIM,
                 Settings.System.GAMING_MODE_BRIGHTNESS_ENABLED,
@@ -139,6 +140,9 @@ public class SystemSettings {
                 Settings.System.GAMING_MODE_MEDIA_ENABLED,
                 Settings.System.GAMING_MODE_MEDIA,
                 Settings.System.GAMING_MODE_SCREEN_OFF,
+                Settings.System.GAMING_MODE_BATTERY_SAVER_DISABLES,
+                Settings.System.GAMING_MODE_THREE_FINGER,
+                Settings.System.GAMING_MODE_APPS,
                 Settings.System.NOTIFICATION_HEADERS,
                 Settings.System.RINGTONE_VIBRATION_PATTERN,
                 Settings.System.CUSTOM_RINGTONE_VIBRATION_PATTERN,
@@ -179,7 +183,8 @@ public class SystemSettings {
                 Settings.System.QS_WIFI_AUTO_ON,
                 Settings.System.QS_BT_AUTO_ON,
                 Settings.System.BRIGHTNESS_SLIDER_HAPTICS,
-                Settings.System.VOLUME_PANEL_HAPTICS
+                Settings.System.VOLUME_PANEL_HAPTICS,
+                Settings.System.THREE_FINGER_GESTURE
         ));
         if (Flags.backUpSmoothDisplayAndForcePeakRefreshRate()) {
             settings.add(Settings.System.PEAK_REFRESH_RATE);

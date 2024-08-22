@@ -6378,6 +6378,14 @@ public final class Settings {
         public static final String GAMING_MODE_BATTERY_SCHEDULE = "gaming_mode_battery_schedule";
 
         /**
+         * Whether to {@link android.os.PowerManagerInternal#setPowerMode}
+         * to {@link android.hardware.power.Mode#GAME} when gaming mode is on
+         * @hide
+         */
+        @Readable
+        public static final String GAMING_MODE_POWER = "gaming_mode_power";
+
+        /**
          * Whether to enable bluetooth when gaming mode is on
          * @hide
          */
@@ -6426,6 +6434,28 @@ public final class Settings {
          */
         @Readable
         public static final String GAMING_MODE_SCREEN_OFF = "gaming_mode_screen_off";
+
+        /**
+         * Whether gaming mode turns off when battery saver activates
+         * @hide
+         */
+        @Readable
+        public static final String GAMING_MODE_BATTERY_SAVER_DISABLES = "gaming_mode_battery_saver_disables";
+
+        /**
+         * Whether gaming mode turns off three finger for screenshot gesture
+         * @hide
+         */
+        @Readable
+        public static final String GAMING_MODE_THREE_FINGER = "gaming_mode_three_finger";
+
+        /**
+         * Apps gaming macro should automatically activate for
+         * package name list delimeted by comma
+         * @hide
+         */
+        @Readable
+        public static final String GAMING_MODE_APPS = "gaming_mode_apps";
 
         /**
          * Controls whether to show notification headers
@@ -6601,6 +6631,8 @@ public final class Settings {
          * 0 = protrait (default)
          * 1 = circle
          * 2 = text
+         * 3 = landscape
+         * 4 = landscape reversed
          * @hide
          */
         @Readable
@@ -6893,6 +6925,21 @@ public final class Settings {
          */
         @Readable
         public static final String VOLUME_PANEL_HAPTICS = "volume_panel_haptics";
+
+        /**
+         * Three Finger Gesture from Oppo
+         * @hide
+         */
+        @Readable
+        public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
+
+        /**
+         * Three Finger Gesture - flag for activation
+         * NOT for backup!
+         * @hide
+         */
+        @Readable
+        public static final String THREE_FINGER_GESTURE_ACTIVE = "three_finger_gesture_active";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
@@ -20107,7 +20154,7 @@ public final class Settings {
         public static final String BLUETOOTH_OFF_TIMEOUT = "bluetooth_off_timeout";
 
         /**
-         * Whether gaming macro is currently enabled
+         * Whether gaming macro is currently activated
          * Not for backup
          * @hide
          */

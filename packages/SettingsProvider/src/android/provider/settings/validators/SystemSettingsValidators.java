@@ -19,6 +19,7 @@ package android.provider.settings.validators;
 import static android.provider.settings.validators.SettingsValidators.ANY_INTEGER_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.ANY_STRING_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.BOOLEAN_VALIDATOR;
+import static android.provider.settings.validators.SettingsValidators.COMMA_SEPARATED_PACKAGE_LIST_VALIDATOR_EMPTY;
 import static android.provider.settings.validators.SettingsValidators.COMPONENT_NAME_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.CUSTOM_VIBRATION_PATTERN_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.FONT_SCALE_VALIDATOR;
@@ -266,6 +267,7 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.GAMING_MODE_HW_BUTTONS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.GAMING_MODE_NIGHT_LIGHT, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.GAMING_MODE_BATTERY_SCHEDULE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.GAMING_MODE_POWER, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.GAMING_MODE_BLUETOOTH, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.GAMING_MODE_EXTRA_DIM, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.GAMING_MODE_BRIGHTNESS_ENABLED, BOOLEAN_VALIDATOR);
@@ -273,6 +275,9 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.GAMING_MODE_MEDIA_ENABLED, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.GAMING_MODE_MEDIA, new InclusiveIntegerRangeValidator(0, 100));
         VALIDATORS.put(System.GAMING_MODE_SCREEN_OFF, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.GAMING_MODE_BATTERY_SAVER_DISABLES, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.GAMING_MODE_THREE_FINGER, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.GAMING_MODE_APPS, COMMA_SEPARATED_PACKAGE_LIST_VALIDATOR_EMPTY);
         VALIDATORS.put(System.NOTIFICATION_HEADERS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.RINGTONE_VIBRATION_PATTERN, new InclusiveIntegerRangeValidator(0, 5));
         VALIDATORS.put(System.CUSTOM_RINGTONE_VIBRATION_PATTERN, CUSTOM_VIBRATION_PATTERN_VALIDATOR);
@@ -309,7 +314,7 @@ public class SystemSettingsValidators {
                     }
                 });
         VALIDATORS.put(System.VOLUME_KEY_CURSOR_CONTROL, new InclusiveIntegerRangeValidator(0, 2));
-        VALIDATORS.put(System.STATUS_BAR_BATTERY_STYLE, new InclusiveIntegerRangeValidator(0, 2));
+        VALIDATORS.put(System.STATUS_BAR_BATTERY_STYLE, new InclusiveIntegerRangeValidator(0, 4));
         VALIDATORS.put(System.SHOW_BATTERY_PERCENT_INSIDE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.VOLUME_BUTTON_QUICK_MUTE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.VOLUME_BUTTON_QUICK_MUTE_DELAY, new InclusiveIntegerRangeValidator(300, 1500));
@@ -335,5 +340,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.BRIGHTNESS_SLIDER_HAPTICS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.VOLUME_PANEL_HAPTICS, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.THREE_FINGER_GESTURE, BOOLEAN_VALIDATOR);
     }
 }
